@@ -189,22 +189,23 @@ section:last-of-type { border-bottom: none; }
 }
 .nav-logo {
   display: flex;
-  flex-direction: column;
-  gap: .08rem;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
   text-decoration: none;
   flex-shrink: 0;
 }
 .nav-logo-name {
   font-family: 'Cormorant Garamond', Georgia, serif;
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #f0ebe0;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #ffffff;
   letter-spacing: .03em;
   line-height: 1;
 }
 .nav-logo-tagline {
-  font-size: .58rem;
-  letter-spacing: .2em;
+  font-size: 0.62rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--gold);
   font-weight: 500;
@@ -323,18 +324,7 @@ section:last-of-type { border-bottom: none; }
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.65);
-}
-/* Subtle gradient — heavier on left so text is cleanest */
-.hero-vignette {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    105deg,
-    rgba(6,6,6,.55) 0%,
-    rgba(6,6,6,.1) 55%,
-    rgba(6,6,6,.25) 100%
-  );
+  background: linear-gradient(to right, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.55) 45%, rgba(0,0,0,0.15) 100%);
 }
 /* Animated gold accent line at top */
 .hero-accent-line {
@@ -797,6 +787,7 @@ section:last-of-type { border-bottom: none; }
   border-bottom: 1px solid var(--border);
 }
 .page-hero-bg {
+  background-image: inherit;
   position: absolute;
   inset: 0;
   background: linear-gradient(160deg, rgba(6,6,6,.0) 0%, var(--bg) 100%),
@@ -1081,7 +1072,7 @@ section:last-of-type { border-bottom: none; }
   justify-content: center;
   transition: background .3s;
 }
-.gallery-item:hover .gallery-item-overlay { background: rgba(0,0,0,.68); }
+.gallery-item:hover .gallery-item-overlay { background: rgba(0,0,0,0.6); }
 .gallery-item-label {
   font-size: .72rem;
   font-weight: 600;
@@ -1188,6 +1179,35 @@ section:last-of-type { border-bottom: none; }
 }
 .faq-cta h3 { color: var(--white); margin-bottom: .65rem; }
 .faq-cta p { margin-bottom: 1.35rem; font-size: 1rem; color: var(--text); }
+
+/* ============================================================
+   GOOGLE REVIEW FLOATING BUTTON
+   ============================================================ */
+.google-review-btn {
+  position: fixed;
+  bottom: 1.5rem;
+  left: 1.5rem;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  background: #fff;
+  color: #3c3c3c;
+  font-family: var(--font-sans);
+  font-size: .78rem;
+  font-weight: 600;
+  padding: .65rem 1.1rem;
+  border-radius: 2rem;
+  box-shadow: 0 2px 12px rgba(0,0,0,.35);
+  text-decoration: none;
+  transition: box-shadow .2s, transform .2s;
+  letter-spacing: .01em;
+}
+.google-review-btn:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,.45);
+  transform: translateY(-1px);
+  color: #3c3c3c;
+}
 
 /* ============================================================
    RESPONSIVE
