@@ -1,0 +1,105 @@
+---
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/about', label: 'About Us' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/#contact', label: 'Contact' },
+];
+---
+
+<footer class="footer">
+  <div class="container footer-grid">
+    <div>
+      <div class="footer-brand-name">Charlotte Star Service</div>
+      <div class="footer-brand-tagline">BMW &amp; Mercedes-Benz Specialists</div>
+      <p class="footer-brand-desc">
+        Serving Charlotte's European auto owners since 1982. Honest pricing,
+        dealer-level expertise, and a 12-month, unlimited-mile warranty on all parts and labor.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <ul>
+        {navLinks.map((link) => (
+          <li><a href={link.href}>{link.label}</a></li>
+        ))}
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact &amp; Hours</h5>
+      <ul>
+        <li><a href="tel:7043324111">704-332-4111</a></li>
+        <li>4225 Monroe Rd<br />Charlotte, NC 28205</li>
+        <li style="margin-top: .35rem;">Mon–Fri: 8:00am – 5:00pm</li>
+        <li>Sat &amp; Sun: Closed</li>
+      </ul>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <div class="footer-copy">&copy; 2026 Charlotte Star Service. All rights reserved.</div>
+    <div class="footer-disclaimer">
+      Specialists in BMW and Mercedes-Benz only. We do not service hybrid or electric vehicles.
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--black);
+    border-top: 1px solid var(--border);
+    padding: 3rem 0 2rem;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .footer-brand-name {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--white);
+    margin-bottom: .3rem;
+  }
+  .footer-brand-tagline {
+    font-size: .68rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: .9rem;
+  }
+  .footer-brand-desc { font-size: .875rem; color: var(--text-muted); line-height: 1.7; }
+  .footer-col h5 {
+    font-family: var(--font-sans);
+    font-size: .62rem;
+    font-weight: 600;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.1rem;
+  }
+  .footer-col ul li { font-size: .875rem; color: var(--text-muted); margin-bottom: .45rem; line-height: 1.5; }
+  .footer-col ul li a { color: var(--text-muted); }
+  .footer-col ul li a:hover { color: var(--gold); }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 1.4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+  .footer-copy { font-size: .72rem; color: var(--text-dim); }
+  .footer-disclaimer { font-size: .68rem; color: var(--text-dim); opacity: .65; max-width: 380px; text-align: right; }
+
+  @media (max-width: 1024px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 768px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .footer-bottom { flex-direction: column; text-align: center; }
+    .footer-disclaimer { text-align: center; }
+  }
+</style>

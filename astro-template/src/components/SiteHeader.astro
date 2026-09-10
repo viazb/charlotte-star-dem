@@ -1,0 +1,342 @@
+---
+// Top banner + nav, as ONE component. On the plain-HTML site this exact
+// block was copy-pasted into all 4 pages, so every nav change (reorder
+// links, fix the logo, add scroll-spy) had to be repeated 4 times by hand.
+// Here it's edited once and every page that uses <SiteHeader /> picks it up
+// (which is also how the logo stays pixel-identical across all 4 pages —
+// there's only one copy of this markup to be identical from).
+
+import { readFileSync } from 'node:fs';
+import { join } from 'node:path';
+
+// Inlined (not <img src>) on purpose: fill="currentColor" inside an
+// <img>-loaded SVG does NOT pick up the page's CSS color — it's opaque
+// like a raster image to the browser. Inlining the markup directly is
+// the only way "inherits the container's color" actually works.
+//
+// Read via process.cwd() rather than an import.meta.url-relative path:
+// this component's compiled chunk moves to dist/.prerender/chunks/
+// during `astro build`, which breaks any path resolved relative to the
+// source file's own location — cwd is always the project root, in dev
+// and build alike.
+//
+// The file also carries a ~38KB embedded C2PA provenance block (content
+// credentials metadata, not needed to render the icon) — stripped here
+// so it isn't duplicated in every page's HTML on every load.
+const logoIconSvgRaw = readFileSync(
+  join(process.cwd(), 'public/assets/img/logo-icon.svg'),
+  'utf-8'
+);
+const logoIconSvg = logoIconSvgRaw
+  .replace(/<metadata>[\s\S]*?<\/metadata>/, '')
+  .replace(/\sxmlns:c2pa="[^"]*"/, '');
+
+const navLinks = [
+  { href: '/', label: 'Home' },
+  { href: '/#services', label: 'Services' },
+  { href: '/about', label: 'About' },
+  { href: '/gallery', label: 'Gallery' },
+  { href: '/faq', label: 'FAQ' },
+  { href: '/#contact', label: 'Contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<div class="site-header">
+  <div class="top-banner">
+    Mon–Fri 8:00am–5:00pm &nbsp;·&nbsp; Charlotte, NC &nbsp;·&nbsp;
+    <a href="tel:7043324111">704-332-4111</a>
+  </div>
+
+  <nav class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="nav-logo" aria-label="Charlotte Star Service — BMW & Mercedes-Benz Specialists">
+        <div class="nav-logo-icon" aria-hidden="true" set:html={logoIconSvg} />
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Charlotte Star Service</span>
+          <span class="nav-logo-tagline">BMW &amp; Mercedes-Benz Specialists</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        {navLinks.map((link) => (
+          <li>
+            <a href={link.href} class:list={{ active: link.href === currentPath }}>
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+      <a href="tel:7043324111" class="nav-phone">704-332-4111</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile-menu" id="mobileMenu">
+      {navLinks.map((link) => <a href={link.href}>{link.label}</a>)}
+      <a href="tel:7043324111" class="nav-phone-mobile">Call 704-332-4111</a>
+    </div>
+    <div class="hero-accent-line"></div>
+  </nav>
+</div>
+
+<style>
+  .site-header {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1002;
+  }
+  .top-banner {
+    background: #1a1400;
+    color: #c9a84c;
+    font-family: var(--font-sans);
+    font-size: .72rem;
+    font-weight: 500;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    text-align: center;
+    padding: .5rem;
+    line-height: 1.4;
+  }
+  .top-banner a {
+    color: #c9a84c;
+    text-decoration: none;
+    border-bottom: .5px solid rgba(201, 168, 76, .45);
+    padding-bottom: 1px;
+  }
+  .top-banner a:hover { border-bottom-color: #c9a84c; }
+
+  .nav {
+    position: relative;
+    z-index: 1000;
+    padding: .85rem 0;
+    background: rgba(6, 6, 6, .9);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+    transition: padding .3s, background .3s;
+  }
+  .nav.scrolled { padding: .6rem 0; background: rgba(6, 6, 6, .97); }
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+  }
+  .nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    /* NOT flex-shrink:0 — the icon child keeps that instead. This one
+       needs to shrink so nav-logo-text (min-width:0) actually gets
+       squeezed at narrow widths and the name wraps instead of just
+       overflowing/getting clipped. */
+    min-width: 0;
+  }
+  /* Icon SVG is inlined (see the frontmatter) specifically so its
+     fill="currentColor" paths pick up this color. viewBox is 1.61:1;
+     only height is constrained so width follows automatically. */
+  .nav-logo-icon {
+    height: 46px;
+    color: var(--white);
+    flex-shrink: 0;
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, .8));
+  }
+  .nav-logo-icon :global(svg) {
+    height: 46px;
+    width: auto;
+    display: block;
+  }
+  .nav-logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .2rem;
+    /* Lets this shrink below its text's natural one-line width instead
+       of forcing the flex row wider — that's what allows the name to
+       wrap to a second line on its own at narrow widths (see below),
+       with no breakpoint-specific markup needed. */
+    min-width: 0;
+  }
+  /* Single line, wide/uncondensed bold sans — Inter, already used
+     everywhere else on the site (nav links, body copy), at bold
+     weight. Wraps naturally to a 2nd line only if it doesn't fit
+     (see the 480px override), it isn't split in the markup. */
+  .nav-logo-name {
+    display: block;
+    font-family: 'Barlow Semi Condensed', var(--font-sans);
+    font-weight: 700;
+    font-size: 1.375rem;
+    line-height: 1.15;
+    color: var(--white);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, .9);
+  }
+  .nav-logo-tagline {
+    display: block;
+    margin-top: .1rem;
+    font-size: .6875rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .nav-links { display: flex; align-items: center; gap: 1.75rem; }
+  .nav-links a {
+    font-size: .875rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: #c8c2b8;
+  }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-phone {
+    font-family: var(--font-sans);
+    font-size: .78rem;
+    font-weight: 600;
+    color: var(--gold);
+    border: 1px solid rgba(201, 168, 76, .35);
+    padding: .38rem .85rem;
+    border-radius: var(--radius);
+    flex-shrink: 0;
+  }
+  .nav-phone:hover { background: var(--gold); color: var(--black); }
+
+  .nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: .25rem;
+    background: none;
+    border: none;
+  }
+  .nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 1.5px;
+    background: var(--white);
+    border-radius: 2px;
+    transition: all .3s;
+  }
+  .nav-toggle.open span:nth-child(1) { transform: rotate(45deg) translate(4.5px, 4.5px); }
+  .nav-toggle.open span:nth-child(2) { opacity: 0; }
+  .nav-toggle.open span:nth-child(3) { transform: rotate(-45deg) translate(4.5px, -4.5px); }
+
+  .nav-mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%; left: 0; right: 0;
+    background: rgba(6, 6, 6, .98);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 1.25rem 1.5rem;
+    flex-direction: column;
+    gap: .15rem;
+  }
+  .nav-mobile-menu.open { display: flex; }
+  .nav-mobile-menu a {
+    display: block;
+    padding: .7rem 1rem;
+    font-size: .875rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    color: #c8c2b8;
+    border-radius: var(--radius);
+  }
+  .nav-mobile-menu a:hover,
+  .nav-mobile-menu a.active { background: var(--bg-card); color: var(--gold); }
+  .nav-mobile-menu .nav-phone-mobile {
+    margin-top: .5rem;
+    padding: .8rem 1rem;
+    background: rgba(201, 168, 76, .07);
+    border: 1px solid rgba(201, 168, 76, .18);
+    color: var(--gold);
+    text-align: center;
+    border-radius: var(--radius);
+    font-weight: 600;
+  }
+
+  /* Traveling gold accent — lives on the nav's own bottom edge (always
+     on top), not the hero's top edge (which sits behind this fixed
+     header and is never actually visible there). */
+  .hero-accent-line {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 2px;
+    overflow: hidden;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .hero-accent-line::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -35%;
+    width: 35%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation: accent-travel 4s ease-in-out infinite;
+  }
+  @keyframes accent-travel {
+    0% { left: -35%; }
+    100% { left: 135%; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links, .nav-phone { display: none; }
+    .nav-toggle { display: flex; }
+  }
+
+  @media (max-width: 480px) {
+    .nav-inner { gap: .6rem; }
+    .nav-logo { gap: 8px; }
+    /* The name is allowed to wrap to 2 lines here if it must (that's
+       intentional) — but the tagline shouldn't also wrap just because
+       it's the longer string; shrink it instead so it stays one line
+       whether or not the name above it wraps. */
+    .nav-logo-tagline { font-size: 9px; letter-spacing: 1px; }
+  }
+</style>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav?.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  const toggle = document.getElementById('navToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('open');
+    menu?.classList.toggle('open');
+  });
+  menu?.querySelectorAll('a').forEach((link) => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('open');
+      menu.classList.remove('open');
+    });
+  });
+
+  // Scroll-spy: only matters on pages with #home/#services/#contact
+  // sections (the homepage) — a no-op everywhere else.
+  const spySections = ['home', 'services', 'contact']
+    .map((id) => document.getElementById(id))
+    .filter((el): el is HTMLElement => el !== null);
+  const spyLinks = document.querySelectorAll('.nav-links a, .nav-mobile-menu a');
+  function updateActiveNav() {
+    const scrollPos = window.scrollY + 140;
+    let current = spySections[0];
+    spySections.forEach((section) => {
+      if (section.offsetTop <= scrollPos) current = section;
+    });
+    const currentHref = current.id === 'home' ? '/' : `/#${current.id}`;
+    spyLinks.forEach((link) => {
+      link.classList.toggle('active', link.getAttribute('href') === currentHref);
+    });
+  }
+  if (spySections.length) {
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+  }
+</script>

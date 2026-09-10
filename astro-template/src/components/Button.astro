@@ -1,0 +1,62 @@
+---
+// Reusable CTA button — replaces copy-pasting <a class="btn btn-primary">...
+// across every page on the plain-HTML site. Usage:
+//
+//   <Button href="tel:7043324111" variant="primary">
+//     <PhoneIcon slot="icon" />
+//     Call Now
+//   </Button>
+
+interface Props {
+  href: string;
+  variant?: 'primary' | 'outline';
+  target?: string;
+  rel?: string;
+}
+
+const { href, variant = 'primary', target, rel } = Astro.props;
+---
+
+<a href={href} class:list={['btn', `btn-${variant}`]} target={target} rel={rel}>
+  <slot name="icon" />
+  <slot />
+</a>
+
+<style>
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .8rem 1.85rem;
+    border-radius: var(--radius);
+    font-family: var(--font-sans);
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all .22s ease;
+    white-space: nowrap;
+    border: none;
+  }
+  .btn-primary {
+    background: var(--gold);
+    color: var(--black);
+  }
+  .btn-primary:hover {
+    background: var(--gold-light);
+    color: var(--black);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201, 168, 76, .3);
+  }
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid var(--gold);
+  }
+  .btn-outline:hover {
+    background: rgba(201, 168, 76, .08);
+    color: var(--gold-light);
+    transform: translateY(-1px);
+  }
+</style>
