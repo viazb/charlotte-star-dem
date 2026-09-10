@@ -17,6 +17,9 @@
 </head>
 <body>
 
+  <!-- ── SITE HEADER (banner + nav pinned together, no gap) ── -->
+  <div class="site-header">
+
   <!-- ── TOP BANNER ── -->
   <div class="top-banner">Mon–Fri 8:00am–5:00pm &nbsp;·&nbsp; Charlotte, NC &nbsp;·&nbsp; <a href="tel:7043324111">704-332-4111</a></div>
 
@@ -25,21 +28,16 @@
     <div class="container">
       <div class="nav-inner">
         <a href="index.html" class="nav-logo">
-          <svg width="36" height="36" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;">
-            <rect width="40" height="40" rx="4" fill="rgba(201,168,76,0.1)"/>
-            <path d="M8 26 L10 20 L14 17 H26 L30 20 L32 26 Z" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-            <circle cx="13" cy="26" r="2.5" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-            <circle cx="27" cy="26" r="2.5" stroke="#c9a84c" stroke-width="1.5" fill="none"/>
-          </svg>
+          <div class="nav-logo-icon" aria-hidden="true"></div>
           <div>
             <span class="nav-logo-name">Charlotte Star Service</span>
             <span class="nav-logo-tagline">BMW &amp; Mercedes-Benz Specialists</span>
           </div>
         </a>
         <ul class="nav-links">
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="index.html#services">Services</a></li>
+          <li><a href="about.html">About</a></li>
           <li><a href="gallery.html">Gallery</a></li>
           <li><a href="faq.html">FAQ</a></li>
           <li><a href="index.html#contact">Contact</a></li>
@@ -52,21 +50,22 @@
     </div>
     <div class="nav-mobile-menu" id="mobileMenu">
       <a href="index.html">Home</a>
-      <a href="about.html">About</a>
       <a href="index.html#services">Services</a>
+      <a href="about.html">About</a>
       <a href="gallery.html">Gallery</a>
       <a href="faq.html">FAQ</a>
       <a href="index.html#contact">Contact</a>
       <a href="tel:7043324111" class="nav-phone-mobile">Call 704-332-4111</a>
     </div>
+    <div class="hero-accent-line"></div>
   </nav>
+  </div>
 
   <!-- ── HERO ── -->
   <section class="hero" id="home" style="border-bottom: none; padding: 0;">
     <div class="hero-photo"></div>
     <div class="hero-overlay" style="background:linear-gradient(to right,rgba(0,0,0,0.88) 0%,rgba(0,0,0,0.75) 40%,rgba(0,0,0,0.25) 100%);"></div>
     <div class="hero-vignette"></div>
-    <div class="hero-accent-line"></div>
 
     <div class="hero-main">
       <div class="container">
@@ -85,11 +84,11 @@
           </p>
           <div class="hero-ctas">
             <a href="tel:7043324111" class="btn btn-primary">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.13 1 .37 1.96.72 2.9a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45c.94.35 1.9.59 2.9.72A2 2 0 0 1 22 16.92z"/></svg>
-              Call 704-332-4111
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.13 1 .37 1.96.72 2.9a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45c.94.35 1.9.59 2.9.72A2 2 0 0 1 22 16.92z"/></svg>
+              Call Now
             </a>
             <a href="https://maps.google.com/maps?daddr=4225+Monroe+Rd,+Charlotte,+NC+28205" target="_blank" rel="noopener" class="btn btn-outline">
-              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+              <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               Get Directions
             </a>
           </div>
@@ -150,54 +149,54 @@
         <!-- Mechanical Maintenance -->
         <div class="service-card">
           <div class="service-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"/></svg>
           </div>
           <h3>Mechanical Maintenance</h3>
           <p>Full-service mechanical repair and maintenance for all systems.</p>
           <div class="service-items single-col">
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Air Conditioning &amp; Heating</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Battery Replacement</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Brake Repair &amp; Service</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Clutch Repair</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Coolant &amp; Radiator</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Engine Inspection</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Fuel System Service</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Diagnostics &amp; Lighting</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Oil Changes</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Power Steering</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Hose Services</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Pre-Purchase Inspection</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Air Conditioning &amp; Heating</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Battery Replacement</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Brake Repair &amp; Service</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Clutch Repair</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Coolant &amp; Radiator</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Engine Inspection</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Fuel System Service</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Diagnostics &amp; Lighting</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Oil Changes</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Power Steering</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Hose Services</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Pre-Purchase Inspection</span></div>
           </div>
         </div>
 
         <!-- Engine Maintenance -->
         <div class="service-card">
           <div class="service-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></svg>
           </div>
           <h3>Engine Maintenance</h3>
           <p>Precision diagnosis and repair of all engine-related symptoms.</p>
           <div class="service-items single-col">
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Check Engine Light Diagnosis</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Exhaust Smoke Issues</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Strange Noises Investigation</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Stalling &amp; Power Loss</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Vibration Diagnosis</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Check Engine Light Diagnosis</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Exhaust Smoke Issues</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Strange Noises Investigation</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Stalling &amp; Power Loss</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Vibration Diagnosis</span></div>
           </div>
         </div>
 
         <!-- Preventive Maintenance -->
         <div class="service-card">
           <div class="service-card-icon">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg>
           </div>
           <h3>Preventive Maintenance</h3>
           <p>Milestone service intervals to keep your vehicle at peak performance.</p>
           <div class="service-items single-col">
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Complete inspection &amp; fluid service</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Filters, belts, and wear items</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Manufacturer-specified checks</span></div>
-            <div class="service-item"><svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1"/></svg><span>Detailed condition report</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Complete inspection &amp; fluid service</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Filters, belts, and wear items</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Manufacturer-specified checks</span></div>
+            <div class="service-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg><span>Detailed condition report</span></div>
           </div>
           <div class="service-miles">
             <span class="mile-badge">15K mi</span>
@@ -269,9 +268,19 @@
           <div class="testimonial-author">Repeat Customer</div>
         </div>
       </div>
-      <div style="text-align:center; margin-top:2.5rem;">
+      <div style="text-align:center; margin-top:2.5rem; display:flex; justify-content:center; align-items:center; gap:1.75rem; flex-wrap:wrap;">
         <a href="https://www.google.com/maps/place/Charlotte+Star+Service/@35.196168,-80.7887252,17z" target="_blank" rel="noopener" style="color:#c9a84c; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; border-bottom:0.5px solid #c9a84c; padding-bottom:2px;">
           View All 374 Reviews on Google &rarr;
+        </a>
+        <!-- Rating/count as of the time this was added — Carfax doesn't offer an embeddable
+             widget, so this is a static snapshot; update by hand if it drifts noticeably. -->
+        <a href="https://www.carfax.com/Reviews-Charlotte-Star-Service-Charlotte-NC_TNS4J8MEGX" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:.55rem; color:#c9a84c; font-size:0.8rem; letter-spacing:0.12em; text-transform:uppercase; text-decoration:none; border-bottom:0.5px solid #c9a84c; padding-bottom:2px;">
+          <!-- CARFAX's actual current logo (pulled from static.carfax.com) on its own white
+               chip, since the mark's black background tiles would vanish on this dark theme. -->
+          <span style="display:inline-flex; background:#fff; border-radius:3px; padding:2px 5px; line-height:0;">
+            <svg width="75" height="14" viewBox="0 0 379 71" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="img" aria-label="CARFAX"><defs><path id="cfx-a" d="M0 71h378.8V0H0z"/></defs><g fill="none" fill-rule="evenodd"><path d="M7.1 0C3.2 0 0 3.1 0 7v57c0 3.8 3.2 7 7.1 7h351.4c3.9 0 7.1-3.1 7.1-7V7c0-3.8-3.2-7-7.1-7H7.1z" fill="#FFF"/><path d="M3 64V7c0-2.2 1.8-3.9 4.1-3.9h351.4c2.2 0 4.1 1.8 4.1 3.9v57c0 2.2-1.8 3.9-4.1 3.9H7.1C4.8 67.9 3 66.2 3 64zM7.1 0C3.2 0 0 3.1 0 7v57c0 3.8 3.2 7 7.1 7h351.4c3.9 0 7.1-3.1 7.1-7V7c0-3.8-3.2-7-7.1-7H7.1z" fill="#000"/><mask id="cfx-b" fill="#fff"><use xlink:href="#cfx-a"/></mask><path fill="#000" mask="url(#cfx-b)" d="M65.6 65.1h56.7V5.901H65.6zm59.1 0h56.7V5.901h-56.7zm59.6 0H241V5.901h-56.7zm59.5 0h56.7V5.901h-56.7z"/><path d="M358.1 63.5h-8.5l-11.9-17 13.7-19.2h-13.6l-2.4 3.8c-1.5 2.5-3.2 5.1-4.2 7.2-.9-2.1-2.6-4.7-4.1-7.2l-2.4-3.8h-13.9l13.7 19.5-12.2 16.7h-7.8V7.3h53.6v56.2z" fill="#FFF" mask="url(#cfx-b)"/><path fill="#000" mask="url(#cfx-b)" d="M6 65.1h56.7V5.901H6z"/><path d="M35.7 56.3c-11.8 0-18-8.7-18-20.4 0-12.7 7.5-20.4 18.1-20.4 9.7 0 13.6 4.2 16.3 11.6l-10 3.9c-1.4-3.7-2.8-6-6.4-6-4.6 0-6.6 4.6-6.6 10.9 0 6.1 1.9 10.9 6.7 10.9 3.4 0 4.9-1.9 7.1-5.6l9.3 4.9c-2.7 5.1-7.1 10.2-16.5 10.2m78.3-1.1L99.6 15.6H88.5L74.1 55.2H86l2.1-7H100l2.1 7H114zM97.3 39.5h-6.6l.7-2.6c1.4-5 2-7.2 2.5-9.9.5 2.7 1.1 4.8 2.5 9.9l.9 2.6zm73 15.9l-7.9-15.1c4.4-2 7.1-5.6 7.1-11.6 0-9.4-6.2-12.9-15.4-12.9h-17.7v39.6h10.8V42h4.4l6.5 13.4h12.2zM158.6 29c0 2.8-1.4 4.4-5 4.4h-6.5v-8.7h6.6c3.6 0 4.9 1.8 4.9 4.3zm49.2-3.9v5.5h12.4v9.3h-12.4v15.5h-10.9V15.8h31.3v9.3zm83.9 30.4l-14.4-39.6h-11.1l-14.3 39.6h11.8l2.1-7h11.9l2.1 7h11.9zM275 39.8h-6.6l.7-2.6c1.4-5 2-7.2 2.5-9.9.5 2.7 1.1 4.8 2.5 9.9l.9 2.6z" fill="#FFF" mask="url(#cfx-b)"/><path d="M358.1 63.5h-8.5l-11.9-17 13.7-19.2h-13.6l-2.4 3.8c-1.5 2.5-3.2 5.1-4.2 7.2-.9-2.1-2.6-4.7-4.1-7.2l-2.4-3.8h-13.9l13.7 19.5-12.2 16.7h-7.8V7.3h53.6v56.2zm-32.4 0l1-1.4c1.6-2.5 3.2-5.2 4.2-7.3 1.1 2.1 2.6 4.8 4.1 7.3l.9 1.4h-10.2zM302.9 65h56.7V5.8h-56.7V65z" fill="#000" mask="url(#cfx-b)"/><path d="M373.2 5.2c.9 0 1.6 0 1.6-1 0-.8-.7-.9-1.4-.9h-1.3v1.9h1.1zm-2-2.8h2.4c1.4 0 2.1.6 2.1 1.8 0 1.1-.7 1.6-1.7 1.7l1.8 2.7h-1L373.1 6h-1v2.6h-1V2.4h.1zm6.6 3.1c0-2.5-2-4.5-4.4-4.5-2.5 0-4.4 2-4.4 4.5s2 4.5 4.4 4.5c2.4 0 4.4-2 4.4-4.5zM373.4.1c3 0 5.4 2.4 5.4 5.4 0 3-2.4 5.4-5.4 5.4-3 0-5.4-2.4-5.4-5.4 0-3 2.4-5.4 5.4-5.4z" fill="#FFF" mask="url(#cfx-b)"/></g></svg>
+          </span>
+          5★ Rating (70 Reviews) &rarr;
         </a>
       </div>
     </div>
@@ -365,10 +374,12 @@
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.44 2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.13 1 .37 1.96.72 2.9a2 2 0 0 1-.45 2.11L7.91 9a16 16 0 0 0 6.09 6.09l.98-.98a2 2 0 0 1 2.11-.45c.94.35 1.9.59 2.9.72A2 2 0 0 1 22 16.92z"/></svg>
                 Call Now
               </a>
-              <!-- TODO: Replace with Calendly popup script when client provides account -->
+              <!-- TODO: Replace with Calendly popup script when client provides account.
+                   Label reads "Call to Schedule" (not "Schedule Appointment") because this
+                   is still a tel: link, not a real scheduler — see nearby TODO above. -->
               <a href="tel:7043324111" class="btn btn-outline">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-                Schedule Appointment
+                Call to Schedule
               </a>
             </div>
           </div>
@@ -393,8 +404,8 @@
           <h5>Navigation</h5>
           <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Us</a></li>
             <li><a href="index.html#services">Services</a></li>
+            <li><a href="about.html">About Us</a></li>
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="index.html#contact">Contact</a></li>
@@ -439,6 +450,29 @@
         menu.classList.remove('open');
       });
     });
+
+    // Scroll-spy: highlight whichever in-page section (Home/Services/
+    // Contact) is currently under the fixed header, instead of leaving
+    // "Home" marked active no matter how far down the page you've scrolled.
+    const spySections = ['home', 'services', 'contact']
+      .map(id => document.getElementById(id))
+      .filter(Boolean);
+    const spyLinks = document.querySelectorAll('.nav-links a, .nav-mobile-menu a');
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + 140; // clears the fixed banner + nav
+      let current = spySections[0];
+      spySections.forEach(section => {
+        if (section.offsetTop <= scrollPos) current = section;
+      });
+      const currentHref = current.id === 'home' ? 'index.html' : `index.html#${current.id}`;
+      spyLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === currentHref);
+      });
+    }
+    if (spySections.length) {
+      window.addEventListener('scroll', updateActiveNav);
+      updateActiveNav();
+    }
   </script>
 </body>
 </html>

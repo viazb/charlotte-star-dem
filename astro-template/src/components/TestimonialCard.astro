@@ -1,0 +1,45 @@
+---
+interface Props {
+  text: string;
+  author: string;
+  stars?: number;
+}
+
+const { text, author, stars = 5 } = Astro.props;
+---
+
+<div class="testimonial-card">
+  <div class="testimonial-stars">
+    {Array.from({ length: stars }).map(() => (
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+    ))}
+  </div>
+  <p class="testimonial-text">{text}</p>
+  <div class="testimonial-author">{author}</div>
+</div>
+
+<style>
+  .testimonial-card {
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 2rem 2rem 2rem 2.25rem;
+    border-left: 2px solid transparent;
+    transition: border-color .25s, background .2s;
+    height: 100%;
+  }
+  .testimonial-card:hover { background: var(--bg-card-2); border-left-color: var(--gold); }
+  .testimonial-stars { display: flex; gap: 3px; margin-bottom: .9rem; color: var(--gold); }
+  .testimonial-text { font-size: 1rem; color: var(--text); line-height: 1.8; margin-bottom: 1.1rem; }
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: .6rem;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+  .testimonial-author::before { content: ''; display: inline-block; width: 18px; height: 1px; background: var(--gold-dark); }
+</style>
