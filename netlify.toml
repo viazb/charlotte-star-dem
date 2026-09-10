@@ -1,0 +1,17 @@
+## Netlify build config for the Astro rebuild.
+##
+## Without this, Netlify falls back to deploying the repo root as a
+## plain static site (index.html, css/style.css, etc.) — the old
+## plain-HTML version, not astro-template/. `base` below makes Netlify
+## cd into astro-template/ before running anything, so `command` and
+## `publish` are both relative to THAT directory, not the repo root.
+##
+## If the Netlify dashboard already has a Base directory / Build
+## command / Publish directory set by hand (Site settings > Build &
+## deploy), those UI values take priority over this file — clear them
+## there if this file doesn't seem to take effect after a push.
+
+[build]
+  base = "astro-template"
+  command = "npm run build"
+  publish = "dist"
